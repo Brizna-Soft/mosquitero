@@ -1,0 +1,6 @@
+# Lo que arma armar.ps1 (se vuelve a generar desde listas\)
+publicar/
+extension/generado/
+
+# Perfiles temporales y resultados de las pruebas en Edge
+pruebas-locales/

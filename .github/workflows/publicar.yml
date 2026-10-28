@@ -1,0 +1,52 @@
+# Con cada etiqueta v* (por ejemplo v0.1.0): arma los zip de Mosquitero con armar.ps1 y crea la versión
+# (Release) en GitHub con los zip, sus huellas SHA256 y las notas que escribe armar.ps1.
+name: Publicar versión
+
+on:
+  push:
+    tags: ['v*']
+
+permissions: {}
+
+jobs:
+  publicar:
+    runs-on: windows-latest
+    permissions:
+      contents: write   # solo para crear la Release
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Revisar que la etiqueta y version.txt coincidan
+        shell: powershell
+        run: |
+          $version = (Get-Content version.txt -Raw).Trim()
+          if ("v$version" -ne $env:GITHUB_REF_NAME) { throw "La etiqueta $env:GITHUB_REF_NAME no coincide con version.txt ($version)." }
+
+      - name: Armar los zip (Windows PowerShell 5.1)
+        shell: powershell
+        run: .\armar.ps1
+
+      - name: Comprobar que PowerShell 7 convierte igual (solo aviso)
+        continue-on-error: true
+        shell: pwsh
+        run: |
+          .\herramientas\convertir-listas.ps1 -Salida "$env:RUNNER_TEMP\generado-pwsh" | Out-Null
+          $distintos = 0
+          foreach ($f in 'reglas\anuncios.json', 'reglas\rastreadores.json', 'cosmetico\genericos.css', 'cosmetico\por-sitio.json') {
+            $a = (Get-FileHash "extension\generado\$f").Hash
+            $b = (Get-FileHash "$env:RUNNER_TEMP\generado-pwsh\$f").Hash
+            if ($a -ne $b) { Write-Host "::warning::$f sale distinto con PowerShell 7"; $distintos++ }
+          }
+          if ($distintos -eq 0) { Write-Host 'PowerShell 7 da exactamente lo mismo.' }
+
+      - name: Crear la versión en GitHub
+        shell: powershell
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $version = (Get-Content version.txt -Raw).Trim()
+          $archivos = @(Get-ChildItem publicar -File | Where-Object { $_.Name -like 'Mosquitero-*.zip' -or $_.Name -like 'Mosquitero-*.zip.sha256' } | ForEach-Object { $_.FullName })
+          gh release create $env:GITHUB_REF_NAME @archivos --repo $env:GITHUB_REPOSITORY --title "Mosquitero $version" --notes-file publicar\notas.md
+          if ($LASTEXITCODE -ne 0) { throw 'No se pudo crear la Release.' }

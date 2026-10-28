@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Mosquitero",
+  "description": "Deja afuera los anuncios y los rastreadores. Gratis, sin publicidad y sin recoger datos.",
+  "version": "0.1.0",
+  "homepage_url": "https://github.com/Brizna-Soft/mosquitero",
+  "icons": {
+    "16": "iconos/icono-16.png",
+    "32": "iconos/icono-32.png",
+    "48": "iconos/icono-48.png",
+    "128": "iconos/icono-128.png"
+  },
+  "action": {
+    "default_title": "Mosquitero",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "iconos/icono-16.png",
+      "32": "iconos/icono-32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["declarativeNetRequest", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "declarative_net_request": {
+    "rule_resources": [
+      { "id": "anuncios", "enabled": true, "path": "reglas/anuncios.json" },
+      { "id": "rastreadores", "enabled": true, "path": "reglas/rastreadores.json" }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "css": ["cosmetico/genericos.css"],
+      "js": ["contenido.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "minimum_chrome_version": "120"
+}

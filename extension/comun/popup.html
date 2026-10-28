@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Mosquitero</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="cabecera">
+    <img src="iconos/icono-48.png" alt="" width="32" height="32">
+    <div>
+      <h1>Mosquitero</h1>
+      <p class="lema">Deja afuera los anuncios y los rastreadores.</p>
+    </div>
+  </header>
+
+  <section class="tarjeta" aria-labelledby="sitio">
+    <p class="sitio" id="sitio">Revisando…</p>
+    <label class="fila interruptor">
+      <span>Activo en este sitio</span>
+      <input type="checkbox" id="activo" role="switch" checked>
+      <span class="pista" aria-hidden="true"></span>
+    </label>
+    <p class="nota" id="aviso-sitio" role="status"></p>
+  </section>
+
+  <label class="fila casilla">
+    <input type="checkbox" id="rastreadores" checked>
+    <span>Bloquear rastreadores</span>
+  </label>
+  <p class="nota" id="aviso-rastreadores" role="status"></p>
+
+  <p class="nota" id="nota-contador">El número sobre el ícono cuenta lo que se bloqueó en esta página.</p>
+
+  <nav class="enlaces">
+    <a href="https://github.com/Brizna-Soft/mosquitero/issues/new/choose" target="_blank" rel="noopener">Reportar un anuncio que se escapó</a>
+    <span><a href="https://brizna-soft.github.io" target="_blank" rel="noopener">Brizna Soft</a> ·
+      <a href="https://paypal.me/BriznaSoft" target="_blank" rel="noopener">Donar</a></span>
+  </nav>
+
+  <p class="pie">Mosquitero <span id="version"></span> · gratis, sin publicidad y sin recoger datos ·
+    <a href="AVISOS-DE-TERCEROS.txt" target="_blank">listas de EasyList</a></p>
+
+  <script src="popup.js"></script>
+</body>
+</html>

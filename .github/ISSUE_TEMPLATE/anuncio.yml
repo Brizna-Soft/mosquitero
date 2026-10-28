@@ -1,0 +1,48 @@
+name: Se escapó un anuncio
+description: Un anuncio que Mosquitero no bloqueó o no ocultó.
+title: "[Anuncio] "
+labels: ["anuncio"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por avisar. Con la dirección del sitio y una captura podemos revisar qué regla falta.
+        **Antes de subir la captura, revisa que no muestre tu nombre, tu correo ni otros datos tuyos.**
+  - type: input
+    id: sitio
+    attributes:
+      label: Sitio
+      description: La dirección de la página donde salió el anuncio.
+      placeholder: https://www.ejemplo.com/noticia
+    validations:
+      required: true
+  - type: textarea
+    id: captura
+    attributes:
+      label: Captura
+      description: Arrastra aquí una captura donde se vea el anuncio. Si no puedes, cuéntanos dónde aparece.
+    validations:
+      required: true
+  - type: dropdown
+    id: navegador
+    attributes:
+      label: Navegador
+      options:
+        - Chrome
+        - Edge
+        - Brave
+        - Firefox
+        - Otro
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versión de Mosquitero
+      description: Sale abajo en la ventanita de Mosquitero.
+      placeholder: "0.1.0"
+  - type: textarea
+    id: detalles
+    attributes:
+      label: Algo más
+      description: Por ejemplo, si el anuncio sale siempre o solo a veces.

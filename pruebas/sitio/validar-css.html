@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Validar genericos.css</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/genericos.css" id="hoja">
+</head>
+<body>
+  <pre id="resultado">esperando</pre>
+  <script>
+    // Cuenta cuántos grupos de genericos.css acepta el navegador y cuáles selectores no entiende.
+    (async () => {
+      await new Promise((r) => (document.readyState === "complete" ? r() : addEventListener("load", r)));
+      const texto = await (await fetch("/genericos.css")).text();
+      const esperados = (texto.match(/\{ display: none !important; \}/g) || []).length;
+      const exterior = document.getElementById("hoja").sheet.cssRules[0];
+      const aceptados = exterior && exterior.cssRules ? exterior.cssRules.length : -1;
+      const invalidos = [];
+      let selectores = 0;
+      for (const linea of texto.split("\n")) {
+        if (!linea.startsWith("& ")) continue;
+        selectores++;
+        const sel = linea.slice(2).replace(/( \{ display: none !important; \}|,)$/, "");
+        try {
+          document.querySelector(sel);
+        } catch (e) {
+          invalidos.push(sel);
+        }
+      }
+      const json = JSON.stringify({ esperados, aceptados, selectores, invalidos })
+        .replace(/[\u007f-￿]/g, (c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0"));
+      document.getElementById("resultado").textContent = json;
+    })();
+  </script>
+</body>
+</html>

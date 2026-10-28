@@ -1,0 +1,17 @@
+name: Idea
+description: Algo que te gustaría que Mosquitero hiciera.
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Tu idea
+      description: Qué te gustaría que hiciera Mosquitero y para qué te serviría.
+    validations:
+      required: true
+  - type: textarea
+    id: detalles
+    attributes:
+      label: Algo más
+      description: Ejemplos, otros programas que lo hacen, etc.

@@ -1,0 +1,66 @@
+name: Algo se rompe en un sitio
+description: Una página que no funciona bien con Mosquitero encendido.
+title: "[Falla] "
+labels: ["falla"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Mientras lo arreglamos, puedes apagar Mosquitero solo en ese sitio: abre la ventanita y quita
+        «Activo en este sitio». **No pongas contraseñas ni datos personales en el reporte.**
+  - type: input
+    id: sitio
+    attributes:
+      label: Sitio
+      description: La dirección de la página que se rompe.
+      placeholder: https://www.ejemplo.com
+    validations:
+      required: true
+  - type: textarea
+    id: que-pasa
+    attributes:
+      label: Qué pasa
+      description: Qué no funciona (un botón, un video, la página en blanco...) y qué estabas haciendo.
+    validations:
+      required: true
+  - type: dropdown
+    id: apagado
+    attributes:
+      label: ¿Se arregla al apagar «Activo en este sitio»?
+      options:
+        - Sí, apagado en ese sitio funciona bien
+        - No, sigue fallando
+        - No lo probé
+    validations:
+      required: true
+  - type: dropdown
+    id: rastreadores
+    attributes:
+      label: ¿Y al quitar «Bloquear rastreadores»?
+      options:
+        - Sí, así funciona
+        - No, sigue fallando
+        - No lo probé
+  - type: dropdown
+    id: navegador
+    attributes:
+      label: Navegador
+      options:
+        - Chrome
+        - Edge
+        - Brave
+        - Firefox
+        - Otro
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versión de Mosquitero
+      description: Sale abajo en la ventanita de Mosquitero.
+      placeholder: "0.1.0"
+  - type: textarea
+    id: captura
+    attributes:
+      label: Captura (si ayuda)
+      description: Revisa que no muestre datos tuyos.

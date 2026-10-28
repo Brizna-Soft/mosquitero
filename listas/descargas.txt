@@ -1,0 +1,37 @@
+Listas originales usadas por Mosquitero
+=======================================
+
+Son copias exactas, sin cambios, tal como se bajaron. Las hacen «The EasyList authors»
+(https://easylist.to/). Licencia: GPLv3 o CC BY-SA 3.0, a elección; los detalles están en
+AVISOS-DE-TERCEROS.txt.
+
+Archivo:          easylist-2026-10-28.txt
+Título:           EasyList
+Bajada de:        https://easylist.to/easylist/easylist.txt
+Fecha de bajada:  2026-10-28 06:10 UTC
+Versión:          202610280557
+Última revisión:  28 Oct 2026 05:57 UTC
+Licencia (dice):  https://easylist.to/pages/licence.html
+Líneas:           75467
+SHA256:           a7ce840ca9eeaee8779fc288206ee9e0196f3a568021d5bfa96ef86100f48956
+
+Archivo:          easyprivacy-2026-10-28.txt
+Título:           EasyPrivacy
+Bajada de:        https://easylist.to/easylist/easyprivacy.txt
+Fecha de bajada:  2026-10-28 06:10 UTC
+Versión:          202610280605
+Última revisión:  28 Oct 2026 06:05 UTC
+Licencia (dice):  https://easylist.to/pages/licence.html
+Líneas:           57192
+SHA256:           74224eb395839b836a16bc6e7c1b03fa00c895d9065f1cb35fdb9109901d92fe
+
+Archivo:          easylistspanish-2026-10-28.txt
+Título:           EasyList Spanish
+Bajada de:        https://easylist-downloads.adblockplus.org/easylistspanish.txt
+Fecha de bajada:  2026-10-28 06:10 UTC
+Versión:          202610280602
+Última revisión:  28 Oct 2026 06:02 UTC
+Licencia (dice):  https://easylist.to/pages/licence.html
+Líneas:           2719
+SHA256:           adf42a83930d74c2bf0ee5d8e937569b43f99598173f1a64bbb8b0ead5e7ff93
+

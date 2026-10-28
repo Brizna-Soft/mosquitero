@@ -1,0 +1,36 @@
+Mosquitero: avisos de terceros
+==============================
+
+El código de Mosquitero es de Brizna Soft y usa la licencia MIT (archivo LICENSE).
+
+Mosquitero lleva dentro reglas hechas a partir de estas tres listas de filtros:
+
+  EasyList          https://easylist.to/easylist/easylist.txt
+  EasyList Spanish  https://easylist-downloads.adblockplus.org/easylistspanish.txt
+  EasyPrivacy       https://easylist.to/easylist/easyprivacy.txt
+
+Autores: The EasyList authors (https://easylist.to/).
+
+Licencia de las listas: tienen doble licencia, a elección de quien las usa
+(https://easylist.to/pages/licence.html):
+  - GNU General Public License, versión 3 o posterior; o
+  - Creative Commons Atribución-CompartirIgual 3.0 No portada (CC BY-SA 3.0), o posterior.
+EasyList Spanish declara esa misma licencia en su encabezado
+(«! Licence: https://easylist.to/pages/licence.html»).
+
+Mosquitero las usa bajo la licencia CC BY-SA 3.0:
+  https://creativecommons.org/licenses/by-sa/3.0/
+  Texto legal completo: https://creativecommons.org/licenses/by-sa/3.0/legalcode
+
+Qué se cambió: las listas se convirtieron al formato de reglas de los navegadores
+(declarativeNetRequest) y a hojas para ocultar los huecos de los anuncios. En la conversión se
+omitieron las reglas que ese formato no admite (por ejemplo, expresiones regulares, $popup, $csp,
+$redirect y los filtros cosméticos extendidos). Los archivos convertidos que van dentro de la
+extensión (reglas/anuncios.json, reglas/rastreadores.json, cosmetico/genericos.css y
+cosmetico/por-sitio.json) se comparten bajo la misma licencia CC BY-SA 3.0.
+
+Las listas originales, sin cambios, y el programa que las convierte están en
+https://github.com/Brizna-Soft/mosquitero (carpetas listas/ y herramientas/).
+
+Las listas se usan tal como son, sin garantía de ningún tipo. Sus autores no tienen relación con
+Mosquitero ni con Brizna Soft, y no respaldan este programa.

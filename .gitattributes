@@ -1,0 +1,8 @@
+# Fines de línea LF en el repositorio y al sacar los archivos, en Windows también: así los zip salen
+# iguales en esta PC y en GitHub.
+* text=auto eol=lf
+
+# Las listas se guardan tal como se bajaron, byte por byte (su SHA256 está en listas/descargas.txt)
+listas/*.txt -text
+
+*.png binary
