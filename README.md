@@ -35,7 +35,7 @@ tanto se instala a mano. Baja el archivo de la página de
 
 ### Chrome, Edge y Brave
 
-1. Baja **`Mosquitero-0.1.0-chrome.zip`**.
+1. Baja **`Mosquitero-0.2.0-chrome.zip`**.
 2. Descomprímelo en una carpeta que no vayas a borrar, por ejemplo `Documentos\Mosquitero`.
    El navegador usa esa carpeta, así que tiene que quedarse ahí.
 3. Abre la página de extensiones de tu navegador (cópiala en la barra de direcciones):
@@ -65,7 +65,7 @@ por error, vuelve a encenderlo en la página de extensiones.
 Firefox solo instala para siempre las extensiones que **Mozilla firmó**. Mosquitero todavía no tiene esa
 firma. Mientras tanto se puede probar así, pero se quita al cerrar Firefox:
 
-1. Baja **`Mosquitero-0.1.0-firefox.zip`** y descomprímelo.
+1. Baja **`Mosquitero-0.2.0-firefox.zip`** y descomprímelo.
 2. Abre `about:debugging` y elige **Este Firefox**.
 3. Pulsa **Cargar complemento temporal…** y elige el archivo `manifest.json` de esa carpeta.
 
@@ -129,7 +129,7 @@ Si una página se rompe con Mosquitero, pulsa **Este sitio no funciona bien** en
 Hace falta una cuenta de GitHub (es gratis). Como las reglas vienen de EasyList, a veces el arreglo de
 fondo hay que pedirlo también allá; eso lo hacemos nosotros.
 
-## Límites conocidos (versión 0.1.0)
+## Límites conocidos (versión 0.2.0)
 
 - **Ventanas emergentes:** no se cierran las ventanas de anuncios que se abren solas (`$popup`); las
   reglas del navegador no pueden hacerlo. Las páginas de anuncios más conocidas sí se bloquean enteras.

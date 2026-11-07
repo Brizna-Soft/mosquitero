@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Mosquitero",
   "description": "Deja afuera los anuncios y los rastreadores. Gratis, sin publicidad y sin recoger datos.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage_url": "https://github.com/Brizna-Soft/mosquitero",
   "icons": {
     "16": "iconos/icono-16.png",
