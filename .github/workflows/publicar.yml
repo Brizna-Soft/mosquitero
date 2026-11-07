@@ -13,6 +13,8 @@ jobs:
     runs-on: windows-latest
     permissions:
       contents: write   # solo para crear la Release
+      id-token: write   # para la atestación de origen de los zip
+      attestations: write
     steps:
       - uses: actions/checkout@v7
         with:
@@ -40,6 +42,13 @@ jobs:
             if ($a -ne $b) { Write-Host "::warning::$f sale distinto con PowerShell 7"; $distintos++ }
           }
           if ($distintos -eq 0) { Write-Host 'PowerShell 7 da exactamente lo mismo.' }
+
+      # Prueba pública de que los zip los armó GitHub con este código. Se comprueba con:
+      #   gh attestation verify <archivo.zip> --repo Brizna-Soft/mosquitero
+      - name: Atestación de origen de los zip
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: publicar/Mosquitero-*.zip
 
       - name: Crear la versión en GitHub
         shell: powershell
