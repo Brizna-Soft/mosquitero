@@ -6,7 +6,7 @@
   --suave: #5f6b7a;
   --marca: #0f8c7e;
   --marca-fuerte: #0b6b61;
-  --apagado: #b8c2c0;
+  --apagado: #6b7780;      /* 4,4:1 sobre blanco: se ve aunque esté apagado */
   --mal: #c2410c;
   --enlace: #0b6b61;
   color-scheme: light;
@@ -20,7 +20,7 @@
     --suave: #a3acb9;
     --marca: #2bb3a3;
     --marca-fuerte: #5fd0c2;
-    --apagado: #4a535b;
+    --apagado: #7d8894;    /* 4,1:1 sobre la tarjeta oscura */
     --mal: #fb923c;
     --enlace: #5fd0c2;
     color-scheme: dark;
@@ -81,8 +81,18 @@ h1 {
 /* Interruptor: la casilla de verdad queda encima, invisible, para que funcione con teclado y lector */
 .interruptor {
   justify-content: space-between;
-  position: relative;
   min-height: 24px;
+}
+.control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+.palabra {
+  min-width: 2ch;
+  font-weight: 600;
+  text-align: right;
 }
 .interruptor input {
   position: absolute;
@@ -99,6 +109,7 @@ h1 {
   height: 22px;
   border-radius: 11px;
   background: var(--apagado);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
   position: relative;
   transition: background 0.15s;
 }
@@ -146,8 +157,34 @@ h1 {
 a { color: var(--enlace); }
 a:hover { color: var(--marca); }
 
+/* «Buscar actualización»: un botón que se ve como los enlaces de al lado */
+.boton-enlace {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--enlace);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.boton-enlace:hover { color: var(--marca); }
+.boton-enlace:disabled { color: var(--suave); cursor: default; }
+.boton-enlace:focus-visible { outline: 2px solid var(--marca-fuerte); outline-offset: 2px; }
+
 .pie {
   margin: 0;
   color: var(--suave);
-  font-size: 11px;
+  font-size: 12px;
+}
+
+/* Alto contraste de Windows: el interruptor se dibuja con los colores del sistema */
+@media (forced-colors: active) {
+  .pista {
+    border: 1px solid CanvasText;
+    background: Canvas;
+    box-shadow: none;
+  }
+  .pista::after { background: CanvasText; }
+  .interruptor input:checked + .pista { background: Highlight; }
+  .interruptor input:checked + .pista::after { background: HighlightText; }
 }

@@ -17,8 +17,15 @@ un estudio pequeño de Honduras.
   y la página se recarga sin bloqueos.
 - **Rastreadores aparte.** La casilla «Bloquear rastreadores» se puede quitar si algún sitio los
   necesita; los anuncios se siguen bloqueando.
-- **Todo pasa dentro de tu navegador.** Las listas vienen dentro de la extensión: Mosquitero no se
-  conecta a internet.
+- **Todo pasa dentro de tu navegador.** Las listas vienen dentro de la extensión. Mosquitero solo se
+  conecta a internet si pulsas **Buscar actualización**.
+
+## Lo que no hace (todavía)
+
+- **No quita los anuncios de YouTube.** Necesitan trucos con scripts que esta versión no hace.
+- **No cierra las ventanas de anuncios que se abren solas.** Las páginas de anuncios más conocidas sí se
+  bloquean enteras.
+- **En Firefox no sale el número** sobre el ícono, pero bloquea igual.
 
 ## Cómo instalarla (mientras no esté en las tiendas)
 
@@ -39,10 +46,16 @@ tanto se instala a mano. Baja el archivo de la página de
    izquierda.
 5. Pulsa **Cargar descomprimida** (en Edge se llama **Cargar desempaquetada**) y elige la carpeta del
    paso 2, la que tiene el archivo `manifest.json`.
-6. Listo. Para ver el ícono siempre, pulsa la pieza de rompecabezas de la barra y fija Mosquitero.
+6. Para ver el ícono siempre, pulsa la pieza de rompecabezas de la barra y fija Mosquitero.
+7. **Pruébala:** abre la página de un periódico. Sobre el ícono de Mosquitero tiene que salir un número:
+   es lo que bloqueó.
+
+**En modo incógnito** las extensiones no funcionan si no les das permiso. Si lo usas, en la página de
+extensiones pulsa **Detalles** en la tarjeta de Mosquitero y activa **Permitir en modo incógnito**.
 
 El navegador puede mostrar un aviso sobre las extensiones del modo de desarrollador. Es normal mientras
-Mosquitero no esté en la tienda.
+Mosquitero no esté en la tienda: cierra el aviso con la X, sin desactivar Mosquitero. Si lo desactivas
+por error, vuelve a encenderlo en la página de extensiones.
 
 **Para actualizar:** borra lo que hay en la carpeta, descomprime ahí la versión nueva y pulsa
 **Recargar** (la flecha circular) en la tarjeta de Mosquitero, en la página de extensiones.
@@ -67,10 +80,18 @@ Pulsa el ícono de Mosquitero (un escudo con malla) para abrir la ventanita:
 
 - Arriba ves el **sitio** en el que estás.
 - **Activo en este sitio:** apágalo si una página no funciona bien. Mosquitero deja de bloquear y de
-  ocultar ahí, y la página se recarga. Vuelve a encenderlo cuando quieras.
-- **Bloquear rastreadores:** quítala solo si un sitio la necesita. Vale para todos los sitios.
-- **Reportar un anuncio que se escapó**, **Brizna Soft** y **Donar** abren una página nueva solo si
-  los pulsas.
+  ocultar ahí, y la página se vuelve a cargar (si estabas escribiendo algo, termina primero). Vuelve a
+  encenderlo cuando quieras.
+- **Bloquear rastreadores:** los rastreadores son cosas escondidas en las páginas que anotan qué sitios
+  visitas. Quita la casilla solo si un sitio la necesita. Vale para todos los sitios; los anuncios se
+  bloquean siempre.
+- **Este sitio no funciona bien** y **Se escapó un anuncio** abren el formulario de GitHub con el nombre
+  del sitio, la versión y el navegador ya escritos (nunca la dirección completa).
+- **Buscar actualización** le pregunta a GitHub cuál es la última versión. Si hay una nueva, te dice cómo
+  ponerla.
+- **Cómo se usa**, **Brizna Soft** y **Donar** abren una página nueva.
+- Nada de esto se abre ni se conecta si no lo pulsas.
+- Abajo se ve la versión de Mosquitero y la fecha de sus listas.
 
 ## Permisos y privacidad
 
@@ -89,19 +110,21 @@ a los sitios ya alcanza para saber en qué sitio estás), ni `scripting`.
 
 - Mosquitero **no recoge, no guarda y no manda datos** a nadie: ni a Brizna Soft ni a otros. No hay
   telemetría ni publicidad.
-- **No se conecta a internet.** Las listas vienen dentro de la extensión y se ponen al día con cada
-  versión nueva de Mosquitero.
+- **Solo se conecta a internet si pulsas «Buscar actualización».** Entonces le pregunta a la API de GitHub
+  cuál es la última versión de Mosquitero, sin mandar nada tuyo. Las listas vienen dentro de la extensión
+  y se ponen al día con cada versión nueva de Mosquitero.
 - Lo único que guarda son tus dos ajustes, dentro de tu navegador. Si quitas la extensión, se borran.
 - No lee lo que escribes ni el contenido de las páginas: solo oculta los huecos de los anuncios.
 
 ## Reportar un anuncio que se escapó
 
-Pulsa **Reportar un anuncio que se escapó** en la ventanita, o entra a
+Pulsa **Se escapó un anuncio** en la ventanita, o entra a
 [Reportar un problema](https://github.com/Brizna-Soft/mosquitero/issues/new/choose) y elige
 **Se escapó un anuncio**. Pon la dirección del sitio y, si puedes, una captura del anuncio. Antes de
 subir la captura, revisa que no muestre tu nombre, tu correo ni otros datos tuyos.
 
-Si una página se rompe con Mosquitero, elige **Algo se rompe en un sitio**. Para ideas, **Idea**.
+Si una página se rompe con Mosquitero, pulsa **Este sitio no funciona bien** en la ventanita (o elige
+**Algo se rompe en un sitio**). Para ideas, **Idea**.
 
 Hace falta una cuenta de GitHub (es gratis). Como las reglas vienen de EasyList, a veces el arreglo de
 fondo hay que pedirlo también allá; eso lo hacemos nosotros.

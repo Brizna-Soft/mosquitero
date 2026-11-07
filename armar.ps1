@@ -96,6 +96,8 @@ foreach ($navegador in 'chrome', 'firefox') {
     # Con BOM, para que el navegador muestre bien los acentos al abrirlo desde la ventanita
     $avisos = [System.IO.File]::ReadAllText((Join-Path $raiz 'AVISOS-DE-TERCEROS.txt'), [System.Text.Encoding]::UTF8)
     [System.IO.File]::WriteAllText((Join-Path $destino 'AVISOS-DE-TERCEROS.txt'), $avisos, (New-Object System.Text.UTF8Encoding($true)))
+    # La ventanita muestra abajo de qué día son las listas
+    [System.IO.File]::WriteAllText((Join-Path $destino 'fecha-listas.txt'), "$fechaListas`n", $utf8)
 
     Write-Host "Revisando publicar\$navegador ..."
     & (Join-Path $herramientas 'revisar-generado.ps1') -Carpeta $destino

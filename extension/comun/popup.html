@@ -18,9 +18,13 @@
     <p class="sitio" id="sitio">Revisando…</p>
     <label class="fila interruptor">
       <span>Activo en este sitio</span>
-      <input type="checkbox" id="activo" role="switch" checked>
-      <span class="pista" aria-hidden="true"></span>
+      <span class="control">
+        <span class="palabra" id="palabra-activo" aria-hidden="true">Sí</span>
+        <input type="checkbox" id="activo" role="switch" checked>
+        <span class="pista" aria-hidden="true"></span>
+      </span>
     </label>
+    <p class="nota" id="nota-recarga">Al cambiarlo, la página se vuelve a cargar. Si estás escribiendo algo, termina primero.</p>
     <p class="nota" id="aviso-sitio" role="status"></p>
   </section>
 
@@ -28,18 +32,24 @@
     <input type="checkbox" id="rastreadores" checked>
     <span>Bloquear rastreadores</span>
   </label>
+  <p class="nota">Rastreadores: cosas escondidas en las páginas que anotan qué sitios visitas. Los anuncios se
+    bloquean siempre.</p>
   <p class="nota" id="aviso-rastreadores" role="status"></p>
 
   <p class="nota" id="nota-contador">El número sobre el ícono cuenta lo que se bloqueó en esta página.</p>
 
   <nav class="enlaces">
-    <a href="https://github.com/Brizna-Soft/mosquitero/issues/new/choose" target="_blank" rel="noopener">Reportar un anuncio que se escapó</a>
-    <span><a href="https://brizna-soft.github.io" target="_blank" rel="noopener">Brizna Soft</a> ·
+    <a id="enlace-falla" href="https://github.com/Brizna-Soft/mosquitero/issues/new?template=falla.yml" target="_blank" rel="noopener">Este sitio no funciona bien</a>
+    <a id="enlace-anuncio" href="https://github.com/Brizna-Soft/mosquitero/issues/new?template=anuncio.yml" target="_blank" rel="noopener">Se escapó un anuncio</a>
+    <span><button type="button" class="boton-enlace" id="buscar">Buscar actualización</button></span>
+    <p class="nota" id="aviso-actualizacion" role="status"></p>
+    <span><a href="https://brizna-soft.github.io/programas/mosquitero/" target="_blank" rel="noopener">Cómo se usa</a> ·
+      <a href="https://brizna-soft.github.io" target="_blank" rel="noopener">Brizna Soft</a> ·
       <a href="https://paypal.me/BriznaSoft" target="_blank" rel="noopener">Donar</a></span>
   </nav>
 
-  <p class="pie">Mosquitero <span id="version"></span> · gratis, sin publicidad y sin recoger datos ·
-    <a href="AVISOS-DE-TERCEROS.txt" target="_blank">listas de EasyList</a></p>
+  <p class="pie">Mosquitero <span id="version"></span><span id="fecha-listas"></span> · gratis, sin publicidad y sin
+    recoger datos · <a href="AVISOS-DE-TERCEROS.txt" target="_blank">listas de EasyList</a></p>
 
   <script src="popup.js"></script>
 </body>
